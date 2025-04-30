@@ -14,6 +14,8 @@ float player1x, player1y, //postion
 float player2x,player2y,//position
 player2d; //diameter
 
+float ballx,bally,balld,vx,vy;
+
 //key variables ===========================
 
 boolean aKey, dKey, sKey, wKey;
@@ -31,6 +33,14 @@ void setup() {
   player2x = width/3;
   player2y = width/3;
   player2d =100;
+  
+  ballx = width/2;
+  bally = 50;
+  balld = 50;
+  
+  
+  vx = 5;
+  vy = 5;
 }
 
 void draw() {
@@ -42,6 +52,13 @@ void draw() {
   
   circle(player2x,player2y,player2d);
 
+
+//balll
+strokeWeight(5);
+stroke(black);
+fill(white);
+circle(ballx,bally,balld);
+
   if (aKey) player1x = player1x - 5;
   if (dKey) player1x = player1x + 5;
   if (wKey) player1y = player1y- 5;
@@ -51,6 +68,12 @@ void draw() {
 if (leftKey) player2x = player2x - 5;
 if (upKey) player2y = player2y - 5;
 if (downKey) player2y = player2y + 5;
+
+ballx += vx;
+bally +=vy;
+
+if(ballx<=balld/2||ballx>=width-balld/2) vx = -vx;
+if(bally<=balld/2||bally>=height-balld/2) vy = -vy;
 }
 
 void keyPressed() {
@@ -75,4 +98,5 @@ void keyReleased() {
   if (keyCode == LEFT)  leftKey = false;
   if (keyCode == UP) upKey = false;
   if (keyCode == DOWN)  downKey = false;
+  
 }
