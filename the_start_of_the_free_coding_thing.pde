@@ -14,6 +14,15 @@ float apple1x, apple1y;
 
 boolean wKey, aKey, dKey, sKey;
 
+
+//mode Framework int mode;
+int mode;
+
+final int intro =0;
+final int gamme = 1;
+final int pause =2;
+final int gameover= 3;
+
 void setup() {
   size(800, 800);
   player1x = width/2;
@@ -26,47 +35,31 @@ void setup() {
   apple1y =random(20, 780);
 }
 
-void draw() {
-  background(white);
 
-  fill(255, 0, 255);
+
+ void draw() {
+    if (mode == intro) {
+      intro();
+    } else if (mode ==gamme) {
+      game;
+    } else if (mode== gameover) {
+      gameOver();
+    } else {
+      println("ERROR! Mode is " + mode);
+    }
+    
+    
+    fill(255, 0, 255);
   stroke(1);
   strokeWeight(5);
-  ellipse(player1x, player1y, player1rx, player1ry);
+  circle(player1x, player1y, player1d);
   apple1();
-  if (aKey) player1x = player1x - 5;
-  if (dKey) player1x = player1x + 5;
-  if (wKey) player1y = player1y- 5;
-  if (sKey) player1y = player1y + 5;
-}
+  if (aKey) player1x = player1x - 2;
+  if (dKey) player1x = player1x + 2;
+  if (wKey) player1y = player1y- 2;
+  if (sKey) player1y = player1y + 2;
+  }
 
-void keyPressed() {
-  if ( key == 'a')  aKey = true;
-  if ( key == 's')  sKey = true;
-  if ( key == 'w')  wKey = true;
-  if ( key == 'd')  dKey = true;
-}
 
-void keyReleased() {
-  if ( key == 'a')  aKey = false;
-  if ( key == 's')  sKey = false;
-  if ( key == 'w')  wKey = false;
-  if ( key == 'd')  dKey = false;
-}
-
-void apple1() {
   
-noStroke();
-  fill(branch);
-  rect(apple1x-3, apple1y - 25, 5, 15, 5);//brranch
-   fill(leaf);
-  ellipse(apple1x+9, apple1y-25 , 15, 5);//leaf
-  fill(aple);
-  circle(apple1x, apple1y, apple);//round red apple
-}
-
-
-
-void collision() {
-  if (dist(apple1x, apple1y, player1x, player1y) <= apple/2 + player1d);
-}
+  
