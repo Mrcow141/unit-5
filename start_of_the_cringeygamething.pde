@@ -29,7 +29,7 @@ float p1x,p1y,p1d;
 float p2x,p2y,p2d;
 
 //extra variables
-int d = 70;//this is the padel head 
+
 
 int mode;
 
