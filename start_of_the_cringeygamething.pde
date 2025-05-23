@@ -4,8 +4,8 @@
 color white = #ffffff;
 color tablegreen = #60894f;
 color ground = #63594f;
-color padelred = #fd1d1e;
-color padelgreen = #33a148;
+color paddlered = #fd1d1e;
+color paddlegreen = #33a148;
 color firstlayerpadelcolor = #a66b24;
 color secondlayerpadelcolor = #669b9f;
 
@@ -30,6 +30,7 @@ float p2x,p2y,p2d;
 
 //extra variables
 
+int greenscore,redscore,timer;
 
 int mode;
 
