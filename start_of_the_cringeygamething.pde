@@ -1,4 +1,4 @@
-//jamie kwai 
+//jamie kwai
 //2-4
 //colorpallete========================
 color white = #ffffff;
@@ -8,29 +8,31 @@ color paddlered = #fd1d1e;
 color paddlegreen = #33a148;
 color firstlayerpadelcolor = #a66b24;
 color secondlayerpadelcolor = #669b9f;
+color green = #5ca903;
+color red = #880808;
 
 
 
 
 //key variables======================
-boolean wKey,aKey,dKey,sKey;// aswd keys
-boolean rightKey,leftKey,upKey,downKey;//arrow keys
+boolean wKey, aKey, dKey, sKey;// aswd keys
+boolean rightKey, leftKey, upKey, downKey;//arrow keys
 
 
 
 //balls
-float ballx,bally,balld;
+float ballx, bally, balld;
 
 float velocityx = 2;
 float velocityy = 2;
 
 //players
-float p1x,p1y,p1d;
-float p2x,p2y,p2d;
+float p1x, p1y, p1d;
+float p2x, p2y, p2d;
 
 //extra variables
 
-int greenscore,redscore,timer;
+int greenscore, redscore, timer;
 
 int mode;
 
