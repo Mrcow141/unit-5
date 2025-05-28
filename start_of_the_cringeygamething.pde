@@ -23,8 +23,8 @@ boolean rightKey, leftKey, upKey, downKey;//arrow keys
 //balls
 float ballx, bally, balld;
 
-float velocityx = 2;
-float velocityy = 2;
+float velocityx = 0;
+float velocityy = 0;
 
 //players
 float p1x, p1y, p1d;
@@ -36,7 +36,7 @@ int greenscore, redscore, timer;
 
 int mode;
 
-final int INTRO = 0;
-final int GAME = 1;
-final int PAUSE = 2;
-final int GAMEOVER = 3;
+final int INTRO = 1;
+final int GAME = 2;
+final int PAUSE = 3;
+int GAMEOVER;
