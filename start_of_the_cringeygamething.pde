@@ -10,7 +10,9 @@ color firstlayerpadelcolor = #a66b24;
 color secondlayerpadelcolor = #669b9f;
 color green = #5ca903;
 color red = #880808;
-
+color graywhite =#d5d5d5;
+color oceandarkblue = #334d5c;
+color introbackground = #23292e;
 
 
 
@@ -33,6 +35,8 @@ float p2x, p2y, p2d;
 //extra variables
 
 int greenscore, redscore, timer;
+
+
 
 int mode;
 
