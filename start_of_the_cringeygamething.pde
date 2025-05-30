@@ -13,6 +13,15 @@ color red = #880808;
 color graywhite =#d5d5d5;
 color oceandarkblue = #334d5c;
 color introbackground = #23292e;
+color toppartofgradient = #95c6f1;// this is for the rules screen
+color bottompartofgradient = #053371;
+color boombeachcolor = #b13b31;
+color darkelixer = #473f4a;
+color toppartofgradient1 = #29331d;//this is for the gameover screen
+color bottompartofgradient1 = #886f52;
+color blue =#1b70dd;
+
+
 
 
 
@@ -43,4 +52,5 @@ int mode;
 final int INTRO = 1;
 final int GAME = 2;
 final int PAUSE = 3;
+final int RULES = 4;
 int GAMEOVER;

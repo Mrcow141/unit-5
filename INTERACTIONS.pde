@@ -1,7 +1,7 @@
 
-  
-  
-  
+
+
+
 
 
 void keyPressed() {
@@ -9,23 +9,11 @@ void keyPressed() {
   if ( key == 's')  sKey = true;
   if ( key == 'w')  wKey = true;
   if ( key == 'd')  dKey = true;
-  
-  if ( keyCode == RIGHT)  rightKey = true;
-  if ( keyCode == LEFT)  leftKey = true;
-  if ( keyCode == UP)  upKey = true;
-  if ( keyCode == DOWN)  downKey = true;
-  
-  
-  if (aKey) p1x = p1x - 5;
-  if (dKey) p1x = p1x + 5;
-  if (wKey) p1y = p1y - 5;
-  if (sKey) p1y = p1y + 5;
-  
-    
-  if (leftKey) p2x = p2x + 5;
-  if (rightKey) p2x = p2x - 5;
-  if (upKey) p2y = p2y + 5;
-  if (downKey) p2y = p2y - 5;
+
+  if ( keyCode == RIGHT)  leftKey = true;
+  if ( keyCode == LEFT)  rightKey = true;
+  if ( keyCode == UP)  downKey = true;
+  if ( keyCode == DOWN)  upKey = true;
 }
 
 void keyReleased() {
@@ -33,15 +21,31 @@ void keyReleased() {
   if ( key == 's')  sKey = false;
   if ( key == 'w')  wKey = false;
   if ( key == 'd')  dKey = false;
-  
-  if(keyCode == RIGHT) rightKey = false;
-  if(keyCode == LEFT ) leftKey = false;
-  if(keyCode == UP) upKey = false;
-  if(keyCode == DOWN) downKey = false;
+
+  if (keyCode == RIGHT) leftKey = false;
+  if (keyCode == LEFT ) rightKey = false;
+  if (keyCode == UP) downKey = false;
+  if (keyCode == DOWN) upKey = false;
 }
 
 
-void mouseReleased(){
- mode = mode + 1; 
+void interactionsMousePressed() {
+
+  if(mouseX>500&&mouseX<700&&mouseY>500&&mouseY<600){
+   mode = GAME; 
+  }  
+  if(mouseX>320&&mouseX<520&&mouseY>650&&mouseY<700){
+   mode = RULES; 
+  } 
   
+}
+
+void tactile ( int x, int y, int w, int h) {
+  if (mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+h) {
+    strokeWeight(5);
+    stroke(white);
+  } 
+  else {
+    stroke(0);
+  }
 }
