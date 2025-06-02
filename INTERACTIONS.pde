@@ -33,7 +33,7 @@ void interactionsMousePressed() {
 
   if(mouseX>500&&mouseX<700&&mouseY>500&&mouseY<600){
    mode = GAME; 
-  }  
+  }
   if(mouseX>320&&mouseX<520&&mouseY>650&&mouseY<700){
    mode = RULES; 
   } 

@@ -1,7 +1,7 @@
 
 void setup() {
   size(800, 800);
-
+exit = loadImage("exit.png");
 
   p1x =  width/2;
   p1y =  height-100;
@@ -17,10 +17,14 @@ void setup() {
 
 
 
-  velocityx = 0;
-  velocityy = 0;
+  velocityx = random(-3,3);
+  velocityy = random(-3,3);
+  
+  greenscore = redscore = 0;
   
   mode = INTRO;
+  
+  timer = 100;
 }
 
 void draw() {
@@ -75,8 +79,15 @@ void draw() {
   p2x = constrain(p2x, 39, 770);
   p2y = constrain(p2y, 36, 365);
 
+  if(timer<0){
   ballx += velocityx;
   bally += velocityy;
+  }
+  
+  if(mode == GAME){
+    timer -= 1;
+  }
+
 
 
 
@@ -94,22 +105,52 @@ void draw() {
   //scoring
   if (bally<50) {//top scoring
     redscore++;
+    ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
   if (bally>750) {//bottom scoring
     greenscore++;
+      ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
 
   if (ballx<100&&bally<400) {//1st hlaf of left side top side
     redscore++;
+      ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
   if (ballx<100&&bally>400) {//2ndhalf of left side out bottom side
     greenscore++;
+      ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
   if (ballx>700&&bally<400) {//1sthalf of right side out top side
     redscore++;
+      ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
   if (ballx>700&&bally>400) {//2nd half of righ side bottom side
     greenscore++;
+      ballx = width/2;
+    bally = height/2;
+    timer = 100;
+    velocityx = random(-3,3);
+    velocityy = random(-3,3);
   }
 
 
@@ -117,38 +158,38 @@ void draw() {
   if (ballx>0 && ballx<100 && bally>0 && bally<400) {//leftout first half
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
   if (ballx>0 && ballx<100 && bally>400 && bally<800) {//leftout second half
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
   if (ballx>700 && ballx<800 && bally>0 && bally<400) {//rightout first half
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
   if (ballx>700 && ballx<800 && bally>400 && bally<800) {//rightout second half
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
   if (ballx>0 && ballx<800 && bally>0 && bally<50) {//topout
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
   if (ballx>0 && ballx<800 && bally>750 && bally<825) {//bottomout
     ballx =width/2;
     bally =height/2;
-    velocityx = 0;
-    velocityy = 0;
+    velocityx = random(3,-3);
+    velocityy = random(3,-3);
   }
 
 
@@ -158,6 +199,10 @@ void draw() {
   text(greenscore, width/4, 100);
   fill(red);
   text(redscore, 3*width/4, 100);
+  text(timer,width/2,30);
+  //timer -= 1;
+  
+  
 
   //mode framework
   if (mode ==INTRO) {
@@ -167,11 +212,11 @@ void draw() {
   } else if (mode == GAMEOVER) {
     gameover();
   } else if(mode == RULES){
-   rules();  
-  } else{
+    rules();  
+  } else { 
     println("Mode Error: Mode is" + mode);
   }
-  if (greenscore == 1 || redscore == 1) {
+  if (greenscore == 11 || redscore == 11) {
     gameover();
   }
   

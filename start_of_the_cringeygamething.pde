@@ -21,6 +21,8 @@ color toppartofgradient1 = #29331d;//this is for the gameover screen
 color bottompartofgradient1 = #886f52;
 color blue =#1b70dd;
 
+//image
+PImage exit;
 
 
 
@@ -28,7 +30,7 @@ color blue =#1b70dd;
 //key variables======================
 boolean wKey, aKey, dKey, sKey;// aswd keys
 boolean rightKey, leftKey, upKey, downKey;//arrow keys
-
+boolean AI;
 
 
 //balls
