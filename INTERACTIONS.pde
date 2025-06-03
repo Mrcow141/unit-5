@@ -31,21 +31,34 @@ void keyReleased() {
 
 void interactionsMousePressed() {
 
-  if(mouseX>500&&mouseX<700&&mouseY>500&&mouseY<600){
-   mode = GAME; 
+  if (mouseX>500&&mouseX<700&&mouseY>500&&mouseY<600) {
+    mode = GAME;
   }
-  if(mouseX>320&&mouseX<520&&mouseY>650&&mouseY<700){
-   mode = RULES; 
+  if (mouseX>320&&mouseX<520&&mouseY>650&&mouseY<700) {
+    mode = RULES;
+  }
+}
+
+void interactionsMousePressedpauseingame(){
+  if (mouseX>750&&mouseX<800&&mouseY>0&&mouseY<50) {
+  mode = PAUSE;
   } 
-  
+  //if(mouseX>700&&mouseX<800&&mouseY>0&&mouseY<100){
+  // mode = GAME; 
+  //}
+}
+
+void interactionsMousePressedinpausetogame(){
+ if(mouseX>0&&mouseX<100&&mouseY>0&&mouseY<100){
+   mode = GAME; 
+  } 
 }
 
 void tactile ( int x, int y, int w, int h) {
   if (mouseX>x && mouseX<x+w && mouseY>y && mouseY<y+h) {
     strokeWeight(5);
     stroke(white);
-  } 
-  else {
+  } else {
     stroke(0);
   }
 }

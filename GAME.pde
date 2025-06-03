@@ -220,6 +220,19 @@ void draw() {
     gameover();
   }
   
+//pause
+if(mode == GAME){
+fill(darkelixer);
+tactile(750,0,50,50);
+rect(750,0,50,50);
+fill(white);
+textSize(20);
+text("pause",750,30);
+}
+
+if (mode ==PAUSE){
+ timer = timer; 
+}
 }
 
 void mousePressed() {
@@ -227,6 +240,12 @@ void mousePressed() {
     interactionsMousePressed();
   } else if(mode == RULES) {
     rulesMousePressed();
+  }
+   if(mode == GAME){
+   interactionsMousePressedpauseingame(); 
+  }
+  else if(mode == PAUSE){
+   interactionsMousePressedinpausetogame(); 
   }
 }
 
