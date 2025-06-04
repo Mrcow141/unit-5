@@ -8,28 +8,28 @@ void intro() {
    rect(500, 500, 200, 100);//rightbox/button
    fill(oceandarkblue);
   text("1v1", 550, 570);
- if(mousePressed==true){ 
-  //rect(500, 500, 200, 100);//rightbox/button
-  //fill(oceandarkblue);
-  //text("1v1", 550, 570);
-  AI = false;
-  mode = GAME;
- }
+ //if(mousePressed==true){ 
+ // //rect(500, 500, 200, 100);//rightbox/button
+ // //fill(oceandarkblue);
+ // //text("1v1", 550, 570);
+ // AI = false;
+ // mode = GAME;
+ //}
  
   tactile(130,500,200,100);
   fill(graywhite);
   rect(130, 500, 200, 100);//leftbutton/box
   fill(oceandarkblue);
   text("Bot",180,570);
- if (mousePressed == true){
-  //tactile(130,500,200,100);
-  //fill(graywhite);
-  //rect(130, 500, 200, 100);//leftbutton/box
-  //fill(oceandarkblue);
-  //text("Bot",180,570);
- AI = true;
-  mode = GAME;
- }
+ //if (mousePressed == true){
+ // //tactile(130,500,200,100);
+ // //fill(graywhite);
+ // //rect(130, 500, 200, 100);//leftbutton/box
+ // //fill(oceandarkblue);
+ // //text("Bot",180,570);
+ //AI = true;
+ // mode = GAME;
+ //}
   
   
   tactile(320,650,200,100);
