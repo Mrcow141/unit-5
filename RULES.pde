@@ -1,6 +1,7 @@
 void rules(){
  gradient();  
  fill(red);
+ textSize(30);
   text("to move the red paddle use the 'wasd' keys",50,100);
   text("player number 1 is the red paddle", 50,150);
   fill(green);

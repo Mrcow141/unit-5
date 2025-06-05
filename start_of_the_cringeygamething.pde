@@ -56,3 +56,18 @@ final int GAME = 2;
 final int PAUSE = 3;
 final int RULES = 4;
 int GAMEOVER;
+
+void draw(){
+  
+  if (mode ==INTRO) {
+    intro();
+  } else if (mode == PAUSE) {
+    pausescreen();
+  } else if (mode == GAMEOVER) {
+    gameover();
+  } else if (mode == RULES) {
+    rules();
+  } else if(mode == GAME){
+   game(); 
+  } //println("Mode Error: Mode is" + mode);
+  }

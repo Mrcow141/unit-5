@@ -40,5 +40,28 @@ void intro() {
   
   
   
+   p1x =  width/2;
+  p1y =  height-100;
+  p1d = 70;
+
+  p2x = width/2;
+  p2y = 100;
+  p2d = 70;
+
+  ballx = width/2;
+  bally = height/2;
+  balld = 20;
+
+
+
+  velocityx = random(-3, 3);
+  velocityy = random(-3, 3);
+
+  greenscore = redscore = 0;
+
+  timer = 100;
+  
+  
+  
 
 }

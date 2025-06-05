@@ -27,7 +27,7 @@ void setup() {
   timer = 100;
 }
 
-void draw() {
+void game() {
   background(ground);
   noStroke();
   if(mode == GAME) {
@@ -209,19 +209,21 @@ void draw() {
 
 
   //mode framework
-  if (mode ==INTRO) {
-    intro();
-  } else if (mode == PAUSE) {
-    pausescreen();
-  } else if (mode == GAMEOVER) {
-    gameover();
-  } else if (mode == RULES) {
-    rules();
-  } else {
-    println("Mode Error: Mode is" + mode);
-  }
-  if (greenscore == 11 || redscore == 11) {
-    gameover();
+  //if (mode ==INTRO) {
+  //  intro();
+  //} else if (mode == PAUSE) {
+  //  pausescreen();
+  //} else if (mode == GAMEOVER) {
+  //  gameover();
+  //} else if (mode == RULES) {
+  //  rules();
+  //} else {
+  //  //println("Mode Error: Mode is" + mode);
+  //}
+  if (greenscore == 1 || redscore == 1) {
+    mode = GAMEOVER;
+    
+   
   }
 
   //pause
@@ -234,9 +236,14 @@ void draw() {
     text("pause", 750, 30);
   }
 
-  if (mode ==PAUSE) {
-    
-  }
+//if(mode == GAMEOVER){
+// ballx = 400;
+// bally = 400;
+//  velocityx = 0;
+// velocityy = 0;
+// timer = 100;
+ 
+//}
 }
 
 void mousePressed() {
@@ -249,6 +256,9 @@ void mousePressed() {
     interactionsMousePressedpauseingame();
   } else if (mode == PAUSE) {
     interactionsMousePressedinpausetogame();
+  } else if (mode == GAMEOVER){
+   interactionsMousePressedgameover(); 
+   
   }
 }
 
