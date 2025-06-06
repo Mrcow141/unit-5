@@ -25,18 +25,26 @@ void setup() {
   mode = INTRO;
 
   timer = 100;
+
+  //Load sounds
+  fail = new SoundFile(this, "FAILURE.wav");
+  music = new SoundFile(this, "MUSIC.mp3");
+  success = new SoundFile(this, "SUCCESS.wav");
+
+  //music.loop();
+  //music.amp(0.3);
 }
 
 void game() {
   background(ground);
   noStroke();
-  if(mode == GAME) {
+  if (mode == GAME) {
     fill(ground);
     rect(0, 0, width, height/2);//top half of the proj
     rect(0, 400, width, height/2);//bottom half of the proj
     fill(tablegreen);
     rect(200, 140, 400, 525);//big table
-  
+
     fill(white);
     rect(200, 400, 400, 5);
     rect(400, 140, 5, 525);
@@ -47,24 +55,24 @@ void game() {
     rect(800, 400, -100, 800);//rightside of the proj/outs/second half
     rect(0, 0, 800, 50);//top side of the proj/outs
     rect(00, 750, 800, 75);//bottom side of the proj/outs
-  
-  
+
+
     paddle(p1x, p1y, p1d, paddlered, 0);
     paddle(p2x, p2y, p2d, paddlegreen, PI);
-  
+
     //fill(255);
     //circle(p2x-4, p2y, p2d);
     //circle(p1x+4, p1y, p1d);
-  
+
     //ball
-  
+
     fill(white);
     stroke(0.5);
     circle(ballx, bally, balld);
-  
-  
-  
-  
+
+
+
+
     if (aKey) p1x = p1x - 4;
     if (dKey) p1x = p1x + 4;
     if (wKey) p1y = p1y - 4;
@@ -81,25 +89,25 @@ void game() {
     p1y = constrain(p1y, 439, 765);
     p2x = constrain(p2x, 39, 770);
     p2y = constrain(p2y, 36, 365);
-  
+
     if (timer<0) {
       ballx += velocityx;
       bally += velocityy;
     }
-  
+
     if (mode == GAME) {
       timer -= 1;
     }
-  
-  
-  
-  
+
+
+
+
     //red padel/player 1
     if (dist(p1x, p1y, ballx, bally)<= p1d/2 + balld/2) {
       velocityx = (ballx - p1x)/10;
       velocityy = (bally - p1y)/10;
     }
-  
+
     //greenpadel/player 2
     if (dist(p2x, p2y, ballx, bally)<=p2d/2 + balld/2) {
       velocityx = (ballx- p2x)/10;
@@ -113,6 +121,8 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
     if (bally>750) {//bottom scoring
       greenscore++;
@@ -121,8 +131,10 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
-  
+
     if (ballx<100&&bally<400) {//1st hlaf of left side top side
       redscore++;
       ballx = width/2;
@@ -130,6 +142,8 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
     if (ballx<100&&bally>400) {//2ndhalf of left side out bottom side
       greenscore++;
@@ -138,6 +152,8 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
     if (ballx>700&&bally<400) {//1sthalf of right side out top side
       redscore++;
@@ -146,6 +162,8 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
     if (ballx>700&&bally>400) {//2nd half of righ side bottom side
       greenscore++;
@@ -154,9 +172,11 @@ void game() {
       timer = 100;
       velocityx = random(-3, 3);
       velocityy = random(-3, 3);
+      success.stop();
+      success.play();
     }
-  
-  
+
+
     //outs
     if (ballx>0 && ballx<100 && bally>0 && bally<400) {//leftout first half
       ballx =width/2;
@@ -194,8 +214,8 @@ void game() {
       velocityx = random(3, -3);
       velocityy = random(3, -3);
     }
-  
-  
+
+
     //scoreboard
     textSize(35);
     fill(green);
@@ -220,10 +240,8 @@ void game() {
   //} else {
   //  //println("Mode Error: Mode is" + mode);
   //}
-  if (greenscore == 1 || redscore == 1) {
+  if (greenscore == 3 || redscore == 3) {
     mode = GAMEOVER;
-    
-   
   }
 
   //pause
@@ -236,14 +254,19 @@ void game() {
     text("pause", 750, 30);
   }
 
-//if(mode == GAMEOVER){
-// ballx = 400;
-// bally = 400;
-//  velocityx = 0;
-// velocityy = 0;
-// timer = 100;
- 
-//}
+  //if(mode == GAMEOVER){
+  // ballx = 400;
+  // bally = 400;
+  //  velocityx = 0;
+  // velocityy = 0;
+  // timer = 100;
+
+  //}
+
+  if (mode ==GAMEOVER) {
+    music.loop();
+    music.amp(0.3);
+  }
 }
 
 void mousePressed() {
@@ -256,9 +279,8 @@ void mousePressed() {
     interactionsMousePressedpauseingame();
   } else if (mode == PAUSE) {
     interactionsMousePressedinpausetogame();
-  } else if (mode == GAMEOVER){
-   interactionsMousePressedgameover(); 
-   
+  } else if (mode == GAMEOVER) {
+    interactionsMousePressedgameover();
   }
 }
 

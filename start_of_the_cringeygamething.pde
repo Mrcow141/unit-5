@@ -1,3 +1,7 @@
+
+
+import processing.sound.*;
+
 //jamie kwai
 //2-4
 //colorpallete========================
@@ -56,6 +60,11 @@ final int GAME = 2;
 final int PAUSE = 3;
 final int RULES = 4;
 int GAMEOVER;
+
+//sound variables
+SoundFile fail;
+SoundFile success;
+SoundFile music;
 
 void draw(){
   
